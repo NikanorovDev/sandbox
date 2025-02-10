@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML/CSS/JS Sandbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css"
+    />
+    <style>
+      .editor {
+        @apply h-[400px] rounded-lg;
+      }
+
+      .preview {
+        @apply h-[400px] border border-gray-300 rounded-lg;
+      }
+
+      .console {
+        @apply bg-gray-100 p-2 rounded-lg h-[100px] overflow-y-auto;
+      }
+
+      body.dark-mode {
+        @apply bg-gray-900 text-white;
+      }
+
+      body.dark-mode .console {
+        @apply bg-gray-800 text-gray-300;
+      }
+    </style>
+  </head>
+  <body class="p-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Toolbar -->
+      <div class="flex justify-between items-center mb-4">
+        <button id="reset-button" class="btn btn-primary">Reset</button>
+        <button id="theme-switcher" class="btn btn-info">Dark Mode</button>
+        <div class="space-x-2">
+          <button id="save-button" class="btn btn-success">Save</button>
+          <button id="load-button" class="btn btn-warning">Load</button>
+        </div>
+      </div>
+
+      <!-- Editors -->
+      <div class="grid grid-cols-3 gap-4">
+        <div>
+          <h3 class="text-lg font-bold mb-2">HTML</h3>
+          <textarea id="html-editor" class="editor"></textarea>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-2">CSS</h3>
+          <textarea id="css-editor" class="editor"></textarea>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-2">JavaScript</h3>
+          <textarea id="js-editor" class="editor"></textarea>
+        </div>
+      </div>
+
+      <!-- Live Preview -->
+      <div class="mt-4">
+        <h3 class="text-lg font-bold mb-2">Live Preview</h3>
+        <iframe
+          id="preview-frame"
+          class="preview w-full"
+          frameborder="0"
+        ></iframe>
+      </div>
+
+      <!-- Console Output -->
+      <div class="mt-4">
+        <h3 class="text-lg font-bold mb-2">Console Output</h3>
+        <pre id="console-output" class="console w-full"></pre>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/html-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/css-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js"></script>
+    <script src="sandbox.js"></script>
+  </body>
+</html>
